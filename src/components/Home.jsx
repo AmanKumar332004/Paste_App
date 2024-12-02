@@ -1,5 +1,3 @@
-
-
 import React, { useState, useEffect } from "react";
 import { useSearchParams } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
@@ -73,4 +71,3 @@ const Home = () => {
 };
 
 export default Home;
-
