@@ -80,14 +80,14 @@ export const pasteSlice = createSlice({
     resetAllPaste: (state) => {
       state.pastes = [];
       localStorage.removeItem("pastes"); // Remove from localStorage when resetting
-      toast("Deleted all Pastes")
+      toast.success("Deleted all Pastes")
     },
     removePaste: (state, action) => {
       const pasteIdToRemove = action.payload;
       state.pastes = state.pastes.filter(paste => paste.id !== pasteIdToRemove);
       // Ensure the updated pastes array is stringified before storing
       localStorage.setItem("pastes", JSON.stringify(state.pastes));
-      toast("Deleted Successfully ")
+      toast.success("Deleted Successfully ")
     },
   },
 });
