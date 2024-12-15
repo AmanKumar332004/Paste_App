@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useSearchParams } from "react-router";
+import { useSearchParams, useNavigate } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
 import { addPaste, updatePaste } from "../Features/pasteSlice";
 
@@ -8,6 +8,7 @@ const Home = () => {
   const [input, setInput] = useState("");
   const [searchParams, setSearchParams] = useSearchParams("");
   const pasteId = searchParams.get("pasteId");
+  const navigate = useNavigate();
 
   const Pastes = useSelector((state) => state.pastes);
   const dispatch = useDispatch();
@@ -33,6 +34,8 @@ const Home = () => {
     } else {
       dispatch(addPaste(paste));
     }
+
+    navigate("/pastes");
 
     setInput("");
     setTitle("");
